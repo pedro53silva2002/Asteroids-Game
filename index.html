@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Asteroids Game</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+      body,
+      body * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        background-image: url("./img/fundo.jpg");
+        background-size: cover;
+        color: rgb(197, 195, 195);
+        font-family: "Bebas Neue", cursive;
+        font-size: 70px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: center;
+      }
+
+      h1:hover {
+        transition: all linear 1s;
+        transform: rotateX(360deg);
+      }
+
+      button {
+        width: 20%;
+        align-self: center;
+        border: 2px solid rgb(197, 195, 195);
+        border-radius: 20px;
+        background-color: transparent;
+        color: black;
+        font-family: "Bebas Neue", cursive;
+        font-size: 40px;
+        padding: 10px 0;
+        cursor: pointer;
+        box-shadow: 0 0 40px 40px rgb(197, 195, 195) inset,
+          0 0 0 0 rgb(197, 195, 195);
+        -webkit-transition: all 150ms ease-in-out;
+        transition: all 150ms ease-in-out;
+      }
+
+      button:hover {
+        color: rgb(197, 195, 195);
+        box-shadow: 0 0 10px 0 rgb(197, 195, 195) inset,
+          0 0 10px 4px rgb(197, 195, 195);
+      }
+
+      span {
+        font-size: 20px;
+      }
+
+      .nome {
+        font-size: 30px;
+        transition: font-size 1s linear;
+      }
+
+      .nome:hover {
+        font-size: 50px;
+      }
+
+      svg {
+        position: absolute;
+      }
+
+      h1,
+      button,
+      footer {
+        z-index: 20;
+      }
+
+      #pacman {
+        transform-origin: 50% 50%;
+        animation-name: move;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes move {
+        30% {
+          transform: translate(600px, 500px);
+        }
+        60% {
+          transform: translate(1300px, 20px);
+        }
+        80% {
+          transform: translate(600px, 150px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>ASTEROIDS</h1>
+    <button id="btnPlay">PLAY GAME</button>
+    <svg width="100%" height="100%">
+      <path
+        id="pacman"
+        d="M150 103
+      L200 128
+      L200 175
+      L148.5 148.5
+      L150 200
+      L103 175
+      L103 125
+      Z"
+        fill="white"
+        fill-opacity="0"
+        stroke="white"
+        stroke-width="3"
+      ></path>
+    </svg>
+    <footer>
+      <span class="nome">Joana Portugal</span> <span>|</span>
+      <span class="nome">Luís Gomes</span> <span>|</span>
+      <span class="nome">Pedro Silva</span>
+    </footer>
+  </body>
+
+  <script>
+    const btnPlay = document.getElementById("btnPlay");
+
+    btnPlay.style.display = "none";
+
+    setTimeout(() => {
+      btnPlay.style.display = "block";
+    }, 4000);
+
+    btnPlay.addEventListener("click", () => (location.href = "./game.html"));
+  </script>
+</html>
